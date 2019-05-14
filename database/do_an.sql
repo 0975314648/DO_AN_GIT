@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 11, 2019 lúc 03:58 AM
+-- Thời gian đã tạo: Th5 14, 2019 lúc 09:40 AM
 -- Phiên bản máy phục vụ: 10.1.30-MariaDB
 -- Phiên bản PHP: 7.2.1
 
@@ -72,17 +72,6 @@ CREATE TABLE `giangvien` (
   `sdt` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `id_khoa` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `groups`
---
-
-CREATE TABLE `groups` (
-  `id_group` int(11) NOT NULL,
-  `group_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -204,11 +193,23 @@ CREATE TABLE `thoikhoabieu` (
 --
 
 CREATE TABLE `users` (
-  `id_user` int(11) NOT NULL,
-  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `id_group` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` tinyint(4) NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '$2y$10$QbvNHN8yIwtLLj6jGpoOku9UNLSm9XafrtFopmhC063whTnXPssvq', 1, 'I5LdYgQ33npHX0RWQEmRHrO2ELVmDUvnIFSQRYQMhdmYz4uGLtdzjJF3RQeT', NULL, NULL),
+(2, 'giangvien', '$2y$10$jX6REmicZCiUmfXSpNM68.E8Yspyu5.8ij1Aswd.m5EQvZS0WQbye', 2, '82275UtgpEoq3z09QBRGj2cdlD8a8qY5OfPzF3M7dPFgP6HPZX6jr3r4Zfkh', NULL, NULL),
+(3, 'sinhvien', '$2y$10$fIE90Ev4Z6f2YvZWyVtKnO8d9IiPdDeT7qv5qd6.cetMVyjIUF4vS', 3, '7ohXSWAqVpAqCQ5NBs0kxrUCueM2IeniQpiPaBWBFXH41iuGnXmggRP3DKM9', NULL, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -240,12 +241,6 @@ ALTER TABLE `diemdanh`
 ALTER TABLE `giangvien`
   ADD PRIMARY KEY (`id_giangvien`),
   ADD KEY `id_khoa` (`id_khoa`);
-
---
--- Chỉ mục cho bảng `groups`
---
-ALTER TABLE `groups`
-  ADD PRIMARY KEY (`id_group`);
 
 --
 -- Chỉ mục cho bảng `khoa`
@@ -304,8 +299,7 @@ ALTER TABLE `thoikhoabieu`
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `id_group` (`id_group`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -328,12 +322,6 @@ ALTER TABLE `diemdanh`
 --
 ALTER TABLE `giangvien`
   MODIFY `id_giangvien` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `groups`
---
-ALTER TABLE `groups`
-  MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `khoa`
@@ -387,7 +375,7 @@ ALTER TABLE `thoikhoabieu`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -441,12 +429,6 @@ ALTER TABLE `sinhvien`
 --
 ALTER TABLE `thoikhoabieu`
   ADD CONSTRAINT `thoikhoabieu_ibfk_1` FOREIGN KEY (`id_khoahoc`) REFERENCES `khoahoc` (`id_khoahoc`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Các ràng buộc cho bảng `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id_group`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
