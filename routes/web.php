@@ -18,21 +18,19 @@ Route::get('/', function () {
 Route::group(['namespace'=>'Admin'],function(){
     Route::group(['prefix'=>'login'],function(){
         Route::get('/','LoginController@getLogin');
+        Route::post('/','LoginController@postLogin');
     });
-});
-
-Route::get('login', function () {
-    return view('Login');
+    Route::get('logout','LoginController@getLogout');
 });
 
 Route::get('quantrihethong', function () {
     return view('layout_quantri.index');
 });
 
-Route::get('quanlysinhvien', function () {
-    return view('quantri.sinhvien');
+Route::get('sinhviendefault', function () {
+    return view('sinhvien.default');
 });
 
-Route::get('default', function () {
+Route::get('giangviendefault', function () {
     return view('giangvien.default');
 });

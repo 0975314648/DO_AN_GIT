@@ -72,7 +72,7 @@
         
         @include('layout_sinhvien.header')      
         
-        @include('layout_sinhvien.menu')boot_asset/
+        @include('layout_sinhvien.menu')
 
         @yield('content')
 

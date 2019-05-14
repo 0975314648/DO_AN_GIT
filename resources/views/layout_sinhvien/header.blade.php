@@ -18,7 +18,7 @@
             </div><!--//to-bar-->
             <div class="header-main container">
                 <h1 class="logo col-md-4 col-sm-4">
-                    <a href="#"><img id="logo" src="Đăng nhập hệ thống - HACTECH/logo.png" alt="Logo"></a>
+                    <a href="#"><img id="logo" src="boot_asset/Đăng nhập hệ thống - HACTECH/logo.png" alt="Logo"></a>
                 </h1><!--//logo-->           
                 <div class="info col-md-8 col-sm-8">
                     <ul class="menu-top navbar-right hidden-xs">

@@ -27,7 +27,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="  color: #fff;text-transform: uppercase;">
                         <i class="fas fa-user fa-fw fa-lg"></i>                     
-                         Giảng viên
+                         {{Auth::user()->username}}
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -35,11 +35,11 @@
                             <div class="navbar-content">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <img src="Đăng nhập hệ thống - HACTECH/attendance-157x88.jpg" alt="Alternate Text" class="img-responsive">
+                                        <img src="boot_asset/Đăng nhập hệ thống - HACTECH/attendance-157x88.jpg" alt="Alternate Text" class="img-responsive">
                                         <p class="text-center small"></p>
                                         </div>
                                         <div class="col-md-7">
-                                            <span> Giảng viên</span>
+                                            <span>{{Auth::user()->username}}</span>
                                             <p class="text-muted small">
                                                 GV000001</p>
                                                
@@ -53,7 +53,7 @@
                                             <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-key"></i> Đổi mật khẩu</a>
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="#" class="btn btn-danger btn-sm pull-right"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                                            <a href="{{asset('logout')}}" class="btn btn-danger btn-sm pull-right"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                                         </div>
                                     </div>
                                 </div>

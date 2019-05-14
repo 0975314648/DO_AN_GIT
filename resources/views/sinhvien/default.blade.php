@@ -28,7 +28,7 @@
                           <div class="row">
                               <div class="item col-md-3 col-sm-6 col-xs-6">
                                 <a href="#">
-                                  <img class="img-responsive" src="Đăng nhập hệ thống - HACTECH/schedule-157x88.jpg" alt="">
+                                  <img class="img-responsive" src="boot_asset/Đăng nhập hệ thống - HACTECH/schedule-157x88.jpg" alt="">
                                   <p class="text-center text-primary"> Lịch thi </p>
                                 </a>
                               </div><!--//item-->
@@ -37,16 +37,16 @@
                                   <img class="img-responsive" src="Đăng nhập hệ thống - HACTECH/transcripts-157x88.jpeg" alt="">
                                   <p class="text-center text-primary"> Bảng điểm </p>
                                 </a>
-                              </div><!--//item-->-->
+                              </div><!--//item-->
                               <div class="item col-md-3 col-sm-6 col-xs-6">
                                 <a href="#">
-                                  <img class="img-responsive" src="Đăng nhập hệ thống - HACTECH/timetable-157x88.jpg" alt="">
+                                  <img class="img-responsive" src="boot_asset/Đăng nhập hệ thống - HACTECH/timetable-157x88.jpg" alt="">
                                   <p class="text-center text-primary"> Thời khóa biểu </p>
                                 </a>
                               </div><!--//item-->
                               <div class="item col-md-3 col-sm-6 col-xs-6">
                                 <a href="#">
-                                  <img class="img-responsive" src="Đăng nhập hệ thống - HACTECH/attendance-157x88.jpg" alt="attendance-hubt">
+                                  <img class="img-responsive" src="boot_asset/Đăng nhập hệ thống - HACTECH/attendance-157x88.jpg" alt="attendance-hubt">
                                   <p class="text-center text-primary"> Dữ liệu điểm danh </p>
                                 </a>
                               </div><!--//item-->                                                                                 

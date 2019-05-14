@@ -147,7 +147,7 @@
 
 				
 
-				<form method="POST" action="" accept-charset="UTF-8" class="form-horizontal"><input name="_token" type="hidden" value="TJh4mW1E1rIt4Us9kWFPvHHJC5Q30DCykTzeux2a">
+				<form method="POST" action="" accept-charset="UTF-8" class="form-horizontal"><input name="_token" type="hidden" value="{{csrf_token()}}">
 					<div class="form-group">
 						<label for="username" class="col-md-4 control-label">Tên tài khoản</label>
 						<div class="col-md-6">
@@ -175,8 +175,9 @@
 						<div class="col-md-6 col-md-offset-4">
 							<button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
 						</div>
-					</div>	
+					</div>
 				</form>
+                @include('error.errorLogin')
 			</article><!--//page-content-->
 			<aside class="page-sidebar col-md-4">
 				<section class="widget">
