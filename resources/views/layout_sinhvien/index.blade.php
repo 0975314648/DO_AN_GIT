@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en"><head>
+    <base href="{{asset('public/')}}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="google-site-verification" content="UGeWtdGxgXZgoQ4CAml_o4y0yLa6yMtL-AKiQ8GTeo0">
     <title> Kết quả học tập | LTMT2K8 </title>
     <!-- Meta -->

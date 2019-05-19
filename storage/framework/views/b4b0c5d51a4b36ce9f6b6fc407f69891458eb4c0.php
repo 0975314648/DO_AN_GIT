@@ -1,6 +1,4 @@
-@extends('layout_quantri.index')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <span style="font-weight:bold; font-size:14px;">DANH SÁCH NGƯỜI DÙNG</span>
                 <div class="header-table">
@@ -28,42 +26,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($user as $a)
+                    <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $a): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{$dem++}}</td>
-                            <td>{{$a->fullname}}</td>
-                            <td>{{$a->username}}</td>
-                            <td><input type="checkbox" name="khadung[]" id="khadung" value="{{$a->status}}" @if($a->status==1) checked @endif ></td>
-                            <td>@if($a->level==1) Admin
-                                @elseif($a->level==2) Giảng viên
-                                @else Sinh viên
-                                @endif
+                            <td><?php echo e($dem++); ?></td>
+                            <td><?php echo e($a->fullname); ?></td>
+                            <td><?php echo e($a->username); ?></td>
+                            <td><input type="checkbox" name="khadung[]" id="khadung" value="<?php echo e($a->status); ?>" <?php if($a->status==1): ?> checked <?php endif; ?> ></td>
+                            <td><?php if($a->level==1): ?> Admin
+                                <?php elseif($a->level==2): ?> Giảng viên
+                                <?php else: ?> Sinh viên
+                                <?php endif; ?>
                             </td>
                             <td><span class="fas fa-edit"></span>
                                 <span class="fas fa-times"></span>
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
                 <div class="number-page">
                     <ul class="pagination">
-                        @if($user->currentPage() != 1)
-                        <li><a href="{{$user->url($user->currentPage() - 1)}}">&laquo;</a></li>
-                        @endif
-                        @for($i = 1;$i <= $user->lastPage(); $i++)
-                        <li class="{{($user->currentPage() == $i) ? 'active' : ''}}">
-                            <a href="{{$user->url($i)}}">{{$i}}</a>
+                        <?php if($user->currentPage() != 1): ?>
+                        <li><a href="<?php echo e($user->url($user->currentPage() - 1)); ?>">&laquo;</a></li>
+                        <?php endif; ?>
+                        <?php for($i = 1;$i <= $user->lastPage(); $i++): ?>
+                        <li class="<?php echo e(($user->currentPage() == $i) ? 'active' : ''); ?>">
+                            <a href="<?php echo e($user->url($i)); ?>"><?php echo e($i); ?></a>
                         </li>
-                        @endfor
-                        @if($user->currentPage() != $user->lastPage())
-                        <li><a href="{{$user->url($user->currentPage() + 1)}}">&raquo;</a></li>
-                        @endif
+                        <?php endfor; ?>
+                        <?php if($user->currentPage() != $user->lastPage()): ?>
+                        <li><a href="<?php echo e($user->url($user->currentPage() + 1)); ?>">&raquo;</a></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('popupDiv')
+<?php $__env->startSection('popupDiv'); ?>
     
     <!-- popupDiv -->
     <div class="popupDiv" id="popupDiv" name="popupDiv" value="1">
@@ -104,7 +102,8 @@
                     </td>
                 </tr>
             </table>
-            {{csrf_field()}}
+            <?php echo e(csrf_field()); ?>
+
         </form>
     </div>
     <!--/popupDiv-->
@@ -145,4 +144,5 @@
                 });*/
             </script>
             
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout_quantri.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DO_AN_GIT\resources\views/quantri/user.blade.php ENDPATH**/ ?>
