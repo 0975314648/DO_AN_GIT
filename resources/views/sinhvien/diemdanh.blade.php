@@ -31,8 +31,9 @@
                                             <table>
                                                     <td style="padding:0px 20px 0px 30px"><label><strong>Xem các môn học khác</strong></label>
                                                         <select class="form-control" style="border-radius:3px">
-                                                            <option value="">Cơ sở dữ liệu</option>
-                                                            <option value="">Lập trình windows 2</option>
+                                                            @foreach($monhoc as $mh)
+                                                            <option value="">{{$mh->tenmonhoc}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </td>
                                                     <td style="padding:20px 20px 0px 0px">
