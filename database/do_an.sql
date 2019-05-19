@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 14, 2019 lúc 09:40 AM
+-- Thời gian đã tạo: Th5 19, 2019 lúc 06:21 AM
 -- Phiên bản máy phục vụ: 10.1.30-MariaDB
 -- Phiên bản PHP: 7.2.1
 
@@ -194,8 +194,10 @@ CREATE TABLE `thoikhoabieu` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(4) DEFAULT NULL,
   `level` tinyint(4) NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -206,10 +208,10 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$QbvNHN8yIwtLLj6jGpoOku9UNLSm9XafrtFopmhC063whTnXPssvq', 1, 'I5LdYgQ33npHX0RWQEmRHrO2ELVmDUvnIFSQRYQMhdmYz4uGLtdzjJF3RQeT', NULL, NULL),
-(2, 'giangvien', '$2y$10$jX6REmicZCiUmfXSpNM68.E8Yspyu5.8ij1Aswd.m5EQvZS0WQbye', 2, '82275UtgpEoq3z09QBRGj2cdlD8a8qY5OfPzF3M7dPFgP6HPZX6jr3r4Zfkh', NULL, NULL),
-(3, 'sinhvien', '$2y$10$fIE90Ev4Z6f2YvZWyVtKnO8d9IiPdDeT7qv5qd6.cetMVyjIUF4vS', 3, '7ohXSWAqVpAqCQ5NBs0kxrUCueM2IeniQpiPaBWBFXH41iuGnXmggRP3DKM9', NULL, NULL);
+INSERT INTO `users` (`id`, `fullname`, `username`, `password`, `status`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin', '$2y$10$/nzauISSiYDQ.2yWlBkVkusT6FkjgZjJQE7sMui3GrDibXRdZcZyK', 1, 1, 'd5wxPgw7QPP6JmWffcRGIp2YTKYIYnk0jOXnHQerdoYpkKmoFgrjIjcROdyW', NULL, NULL),
+(2, 'Giang Vien', 'giangvien', '$2y$10$Ay4AGkyL9UGs7iXOrDtW6OPZq6sV8sOTbgMoBKhgdqz6xaIJWoX5S', 1, 2, NULL, NULL, NULL),
+(3, 'Sinh Vien', 'sinhvien', '$2y$10$savcSJ.wDFHXrpgc4Bdj9.UUUm4JdApEEow4yi7Pnqac7gK1gxrs2', 1, 3, NULL, NULL, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
