@@ -29,7 +29,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="  color: #fff;text-transform: uppercase;">
                         <i class="fas fa-user fa-fw fa-lg"></i>                     
-                         {{Auth::user()->username}}
+                         <?php echo e(Auth::user()->username); ?>
+
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -41,7 +42,7 @@
                                         <p class="text-center small"></p>
                                         </div>
                                         <div class="col-md-7">
-                                            <span>{{Auth::user()->username}}</span>
+                                            <span><?php echo e(Auth::user()->username); ?></span>
                                                
                                             </div>
                                 </div>
@@ -53,7 +54,7 @@
                                             
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="{{asset('logout')}}" class="btn btn-danger btn-sm pull-right"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                                            <a href="<?php echo e(asset('logout')); ?>" class="btn btn-danger btn-sm pull-right"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                                         </div>
                                     </div>
                                 </div>
@@ -64,4 +65,4 @@
             </ul>
                 </div><!--//navabr-collapse-->
     </div><!--//container-->
-</nav><!--//main-nav-->  
+</nav><!--//main-nav-->  <?php /**PATH C:\wamp\www\DO_AN_GIT\resources\views/layout_sinhvien/menu.blade.php ENDPATH**/ ?>

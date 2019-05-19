@@ -1,7 +1,4 @@
-
-@extends('layout_sinhvien.index')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- ******CONTENT****** --> 
 <div class="content container">
@@ -121,4 +118,5 @@
 </div>
 </div><!--//content-->
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout_sinhvien.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\wamp\www\DO_AN_GIT\resources\views/sinhvien/diemdanh.blade.php ENDPATH**/ ?>
