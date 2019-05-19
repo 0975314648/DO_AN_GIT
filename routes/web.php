@@ -43,4 +43,5 @@ Route::get('sinhviendefault', function () {
 Route::get('giangviendefault', function () {
     return view('giangvien.default');
 });
+
 Route::get('sinhviendiemdanh','SinhvienController@monhoc');
