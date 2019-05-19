@@ -29,10 +29,38 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="  color: #fff;text-transform: uppercase;">
                         <i class="fas fa-user fa-fw fa-lg"></i>                     
-                         LTMT2K8
-                        
+                         <?php echo e(Auth::user()->username); ?>
+
+                        <b class="caret"></b>
                     </a>
-                    
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-content">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img src="boot_asset/Đăng nhập hệ thống - HACTECH/attendance-157x88.jpg" alt="Alternate Text" class="img-responsive">
+                                        <p class="text-center small"></p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <span><?php echo e(Auth::user()->username); ?></span>
+                                               
+                                            </div>
+                                </div>
+                            </div>
+                            <div class="navbar-footer">
+                                <div class="navbar-footer-content">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="<?php echo e(asset('logout')); ?>" class="btn btn-danger btn-sm pull-right"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
             </ul>
                 </div><!--//navabr-collapse-->

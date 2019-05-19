@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 
 use App\User;
+use App\MonHoc;
 
 class quantriHTController extends Controller
 {
@@ -33,7 +34,6 @@ class quantriHTController extends Controller
                 DB::insert('insert into users (fullname, username, password, status, level) values (?, ?, ?, ?, ?)', [$fullname, $username, $password, $status, $level]);
             }
         }
-
         return view('quantri.user',compact('user','dem'));
     }
     public function postQTUser( Request $request){

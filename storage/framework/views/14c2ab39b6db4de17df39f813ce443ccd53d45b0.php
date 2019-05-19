@@ -1,7 +1,4 @@
-
-@extends('layout_sinhvien.index')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- ******CONTENT****** --> 
 <div class="content container">
@@ -31,9 +28,9 @@
                                             <table>
                                                     <td style="padding:0px 20px 0px 30px"><label><strong>Xem các môn học khác</strong></label>
                                                         <select class="form-control" style="border-radius:3px">
-                                                            @foreach($monhoc as $mh)
-                                                            <option value="">{{$mh->tenmonhoc}}</option>
-                                                            @endforeach
+                                                            <?php $__currentLoopData = $monhoc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value=""><?php echo e($mh->tenmonhoc); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </td>
                                                     <td style="padding:20px 20px 0px 0px">
@@ -122,4 +119,5 @@
 </div>
 </div><!--//content-->
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout_sinhvien.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DO_AN_GIT\resources\views/sinhvien/diemdanh.blade.php ENDPATH**/ ?>

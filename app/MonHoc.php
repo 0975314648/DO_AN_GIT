@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class MonHoc extends Model
 {
     //
+    protected $table = 'monhoc';
 }

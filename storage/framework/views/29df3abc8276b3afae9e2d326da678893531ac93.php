@@ -42,7 +42,7 @@
                                 </a>
                               </div><!--//item-->
                               <div class="item col-md-3 col-sm-6 col-xs-6">
-                                <a href="#">
+                                <a href="sinhviendiemdanh">
                                   <img class="img-responsive" src="boot_asset/Đăng nhập hệ thống - HACTECH/attendance-157x88.jpg" alt="attendance-hubt">
                                   <p class="text-center text-primary"> Dữ liệu điểm danh </p>
                                 </a>
