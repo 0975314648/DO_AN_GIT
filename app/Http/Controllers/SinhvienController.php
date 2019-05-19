@@ -11,7 +11,6 @@ class SinhVienController extends Controller
     function monhoc()
     {
     	$monhoc = MonHoc::all();
-    	dd($monhoc);
     	return view('sinhvien.diemdanh',compact('monhoc'));
     }
 }
