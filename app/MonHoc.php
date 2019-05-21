@@ -11,6 +11,6 @@ class MonHoc extends Model
 
     public function khoa()
     {
-    	return $this->hasManyThrough('App\Khoa','id_khoa','id_monhoc');
+    	return $this->hasManyThrough('App\Khoa','id_khoa','id_khoa');
     }
 }

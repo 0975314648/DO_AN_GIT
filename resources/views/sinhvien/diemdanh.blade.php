@@ -30,16 +30,16 @@
                                         <form>
                                             <table>
                                                     <td style="padding:0px 20px 0px 30px"><label><strong>Xem các môn học khác</strong></label>
-                                                        <select class="form-control" style="border-radius:3px">
+                                                        <select id ="cbmonhoc" name="cbmonhoc" class="form-control" style="border-radius:3px">
+                                                            <option data-mon="99">--Chon mon--</option>
                                                             @foreach($monhoc as $mh)
-                                                            <option value="">{{$mh->tenmonhoc}}</option>
+                                                            <option value="{{$mh->tenmonhoc}}" data-mon="{{$mh->thuchanh.$mh->lythuyet}}">{{$mh->tenmonhoc}}</option>
                                                             @endforeach
                                                         </select>
                                                     </td>
                                                     <td style="padding:20px 20px 0px 0px">
-                                                        <select class="form-control" style="border-radius:3px">
-                                                            <option value="">Lý thuyết</option>
-                                                            <option value="">Thực hành</option>
+                                                        <select id = "cbloai" name="cbloai" class="form-control" style="border-radius:3px">
+                                                                <option value="">--Loai hoc phan--</option>
                                                         </select>
                                                     </td>
                                                     <td style="padding-top:20px">
@@ -121,5 +121,25 @@
 	</div><!--//page-content-->
 </div>
 </div><!--//content-->
+
+<script>
+    $(document).ready(function($){
+        $('#cbmonhoc').change(function(){
+            var rs = $('#cbmonhoc option:selected').data('mon').toString();
+            var combo=$('#cbloai');
+            combo.empty();
+            switch(rs)
+            {
+                case "01": combo.append("<option value='1'>Thực hành</option>"); break;
+                case "11": combo.append("<option value='0'>Lý thuyết</option>"); 
+                           combo.append("<option value='1'>Thực hành</option>"); 
+                           break;
+                case "10": combo.append("<option value='0'>Lý thuyết</option>"); break;
+                default: combo.append("<option>--Loai hoc phan--</option>"); break;
+            };
+            
+        });
+    });
+</script>
 
 @endsection

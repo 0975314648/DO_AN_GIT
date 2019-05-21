@@ -27,16 +27,16 @@
                                         <form>
                                             <table>
                                                     <td style="padding:0px 20px 0px 30px"><label><strong>Xem các môn học khác</strong></label>
-                                                        <select class="form-control" style="border-radius:3px">
+                                                        <select id ="cbmonhoc" name="cbmonhoc" class="form-control" style="border-radius:3px">
+                                                            <option data-mon="99">--Chon mon--</option>
                                                             <?php $__currentLoopData = $monhoc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value=""><?php echo e($mh->tenmonhoc); ?></option>
+                                                            <option value="<?php echo e($mh->tenmonhoc); ?>" data-mon="<?php echo e($mh->thuchanh.$mh->lythuyet); ?>"><?php echo e($mh->tenmonhoc); ?></option>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </td>
                                                     <td style="padding:20px 20px 0px 0px">
-                                                        <select class="form-control" style="border-radius:3px">
-                                                            <option value="">Lý thuyết</option>
-                                                            <option value="">Thực hành</option>
+                                                        <select id = "cbloai" name="cbloai" class="form-control" style="border-radius:3px">
+                                                                <option value="">--Loai hoc phan--</option>
                                                         </select>
                                                     </td>
                                                     <td style="padding-top:20px">
@@ -118,6 +118,27 @@
 	</div><!--//page-content-->
 </div>
 </div><!--//content-->
+
+<script>
+    $(document).ready(function($){
+        $('#cbmonhoc').change(function(){
+            var rs = $('#cbmonhoc option:selected').data('mon').toString();
+            var combo=$('#cbloai');
+            combo.empty();
+            console.log(rs);
+            switch(rs)
+            {
+                case "01": combo.append("<option value='1'>Thực hành</option>"); break;
+                case "11": combo.append("<option value='0'>Lý thuyết</option>"); 
+                           combo.append("<option value='1'>Thực hành</option>"); 
+                           break;
+                case "10": combo.append("<option value='0'>Lý thuyết</option>"); break;
+                default: combo.append("<option>--Loai hoc phan--</option>"); break;
+            };
+            
+        });
+    });
+</script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout_sinhvien.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DO_AN_GIT\resources\views/sinhvien/diemdanh.blade.php ENDPATH**/ ?>
